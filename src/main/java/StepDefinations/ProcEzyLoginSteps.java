@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.event.MouseEvent;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -47,49 +48,56 @@ public class ProcEzyLoginSteps {
     public void user_is_navigated_to_dashboard() throws InterruptedException {
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/app-header/mat-toolbar/mat-toolbar-row/div/div[1]/div/a[2]")).click();
 
-        // for(var i = 72;i<82;i++)
-        {
-            //create to category
-            Random r = new Random();
+
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-categories/mat-sidenav-container/mat-sidenav-content/div/mat-card/div[1]/div/button")).click();
-            driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).sendKeys("new boat 2");
+            driver.findElement(By.xpath("//*[@id=\"mat-input-2\"]")).sendKeys("new boat 3");
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-categories/mat-sidenav-container/mat-sidenav/div/div[2]/button")).click();
             Thread.sleep(3000);
             //create manufactures
-            Random r1 = new Random();
+
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/div/a[2]")).click();
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manufacture/mat-sidenav-container/mat-sidenav-content/div/mat-card/div[1]/div/button")).click();
-            driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("new boat");
+            driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("new boat 3");
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manufacture/mat-sidenav-container/mat-sidenav/div/div[2]/button")).click();
             Thread.sleep(3000);
             driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/div/a[1]")).click();
-        }
+        //}
         //create model
-        Random r1 = new Random();
+        Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/div/a[3]")).click();
+        Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-models/mat-sidenav-container/mat-sidenav-content/div/mat-card/div[1]/div/button")).click();
+        Thread.sleep(3000);
+        String text = "binocld";
+        driver.findElement(By.xpath("//*[@id=\"mat-input-10\"]")).sendKeys("b");
 
-        WebElement testDropDown;
-        testDropDown = driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-models/mat-sidenav-container/mat-sidenav/div/div[1]/div[2]/mat-form-field[1]/div/div[1]/div[2]/button/span[1]/mat-icon]"));
-        testDropDown = null;
-        Select dropdown = new Select(testDropDown);
-        //dropdown.selectByVisibleText("HDD");
-        Select select = null;
-        select.selectByValue("6");
+        List<WebElement> options = driver.findElements(By.tagName("mat-option"));
+        for (WebElement option : options){
+            System.out.println(option);
+            var abc = option.getText();
+            if (option.getText().contains(text)){
+                System.out.println("Trying to select: "+text);
+                option.click();
+                break;
+            }
+        }
 
-        WebElement testDropDown1 = driver.findElement(By.xpath("//*[@id=\"mat-input-7\"]"));
-        Select dropdown1 = new Select(testDropDown);
-        dropdown.selectByVisibleText("AMD");
+        text = "AMD";
+        driver.findElement(By.xpath("//*[@id=\"mat-input-11\"]")).sendKeys("am");
+        options = driver.findElements(By.tagName("mat-option"));
+
+        for (WebElement option : options){
+            if (option.getText().contains(text)){
+                option.click();
+                break;
+            }
+        }
 
 
-        driver.findElement(By.xpath("//*[@id=\"mat-input-4\"]")).sendKeys("tribal HD");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-8\"]")).sendKeys("tribal HD");
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-models/mat-sidenav-container/mat-sidenav/div/div[2]/button")).click();
         Thread.sleep(3000);
         // driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/div/a[1]")).click();
     }
 
-        //driver.close();
-
-
-        //System.out.println("1");
     }
