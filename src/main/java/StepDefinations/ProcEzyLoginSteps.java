@@ -24,13 +24,14 @@ public class ProcEzyLoginSteps {
 
 
         driver.manage().window().maximize();
-        driver.navigate().to("http://training.promena.in");
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+
     }
 
     @And("user is in Browser")
     public void user_is_in_browser() {
+        driver.navigate().to("http://training.promena.in");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[@id=\"mat-input-0\"]")).sendKeys("admin@gmail.com");
 
         System.out.println("1");
