@@ -4,7 +4,9 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -55,7 +57,7 @@ public class ProcEzySignup {
     @Then("navigate to yop mail and refresh")
     public void navigate_to_yop_mail_and_refresh() throws InterruptedException {
         driver.switchTo().window(tabs.get(0));
-        Thread.sleep(5000);
+        Thread.sleep(6000);
         driver.findElement(By.id("refresh")).click();
         Thread.sleep(2000);
         System.out.println("1");
@@ -77,13 +79,65 @@ public class ProcEzySignup {
         System.out.println("1");
     }
     @And("Enter OTP hit enter")
-    public void enter_otp_hit_enter() {
+    public void enter_otp_hit_enter() throws InterruptedException {
         System.out.println("1");
+        Thread.sleep(6000);
     }
     @Then("fill details")
-    public void fill_details() {
-        System.out.println("1");
+    public void fill_details() throws InterruptedException {
+        driver.findElement(By.xpath("//*[@id=\"mat-input-9\"]")).sendKeys("anz buyer");
+        Thread.sleep(4000);
+
+        var SearchOption = "Hardware Reseller";
+        driver.findElement(By.xpath("//*[@id=\"mat-select-8\"]")).click();
+
+
+        var options = driver.findElements(By.tagName("mat-option"));
+
+        for (var option: options) {
+            if(option.getText().toLowerCase().replace(" ","").contains(SearchOption.toLowerCase().replace(" ","")))
+            {
+                option.click();
+            }
+        }
+        Thread.sleep(6000);
+
+
+
+        driver.findElement(By.xpath("//*[@id=\"mat-input-10\"]")).sendKeys("bagalore");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-11\"]")).sendKeys("2nd stage,banashankari");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-12\"]")).sendKeys("kathriguppea");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-11\"]")).sendKeys("");
+        driver.findElement(By.xpath("//*[@id=\"mat-checkbox-1\"]")).click();
+        driver.findElement(By.xpath("//*[@id=\"mat-select-0\"]")).click();
+        var SearchOption1 = "Karnataka [KR]";
+         options = driver.findElements(By.tagName("mat-select"));
+        for (var option: options) {
+            if(option.getText().toLowerCase().replace(" ","").contains(SearchOption1.toLowerCase().replace(" ","")))
+            {
+                option.click();
+            }
+        }
+        Thread.sleep(4000);
+        driver.findElement(By.xpath("//*[@id=\"mat-select-value-3\"]/span]")).click();
+        var SearchOption2 = "Kolar";
+        options = driver.findElements(By.tagName("mat-select"));
+        for (var option: options) {
+            if(option.getText().toLowerCase().replace(" ","").contains(SearchOption2.toLowerCase().replace(" ","")))
+            {
+                option.click();
+            }
+        }
+
+
+
+        driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDPV09887G");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"mat-input-21\"]")).sendKeys("24AAACK4175D1Z4");
+
+
     }
+
 
 
 
