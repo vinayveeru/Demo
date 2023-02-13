@@ -32,6 +32,7 @@ public class ProcEzySignup {
         driver.findElement(By.id("login")).sendKeys(getSaltString());
         driver.findElement(By.xpath("//*[@id=\"refreshbut\"]/button")).click();
         BuyerEmail = (driver.findElement(By.xpath("//*[@id=\"webmail\"]/div[1]/div/main/div[1]/div/div[1]"))).getText();
+
     }
     @And("open new tab")
     public void open_new_tab() throws InterruptedException {
@@ -56,28 +57,23 @@ public class ProcEzySignup {
         driver.switchTo().window(tabs.get(0));
         Thread.sleep(5000);
         driver.findElement(By.id("refresh")).click();
+        Thread.sleep(2000);
         System.out.println("1");
     }
     @And("get otp and store in a variable")
     public void get_otp_and_store_in_a_variable() {
-        driver.switchTo().window(tabs.get(1));
-        driver.switchTo().window(tabs.get(0));
-        var x = driver.findElements(By.tagName("iframe"));
-        var a = x.get(2);
-
-
-
-        var abc  = driver.findElement(By.xpath("//*[@id=\"mail\"]/div/table/tbody/tr/td/table[3]/tbody/tr/td/table/tbody/tr/td/table[2]/tbody/tr/td/div"));
-        OTP = abc.getText();
+        var newdri = driver;
+        newdri.switchTo().frame(2);
+        OTP = newdri.findElement(By.xpath("//*[@id=\"mail\"]/div/table/tbody/tr/td/table[3]/tbody/tr/td/table/tbody/tr/td/table[2]/tbody/tr/td/div/p")).getText();
     }
     @Then("navigate to ProcEzy")
     public void navigate_to_proc_ezy() {
         driver.switchTo().window(tabs.get(1));
         for(var i = 0;i < OTP.length();i++)
         {
-            driver.findElement(By.xpath("//*[@id=\"mat-input-"+(i+9)+"\"]")).sendKeys(String.valueOf(OTP.charAt(i)));
+            driver.findElement(By.xpath("//*[@id=\"mat-input-"+(i+3)+"\"]")).sendKeys(String.valueOf(OTP.charAt(i)));
         }
-        driver.findElement(By.xpath("//*[@id=\"mat-dialog-1\"]/app-input-dialog/div/mat-dialog-content/div/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"mat-dialog-0\"]/app-input-dialog/div/mat-dialog-content/div/button")).click();
         System.out.println("1");
     }
     @And("Enter OTP hit enter")
@@ -102,7 +98,6 @@ public class ProcEzySignup {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
 
 }
