@@ -111,29 +111,34 @@ public class ProcEzySignup {
         driver.findElement(By.xpath("//*[@id=\"mat-checkbox-1\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"mat-select-0\"]")).click();
         var SearchOption1 = "Karnataka [KR]";
-         options = driver.findElements(By.tagName("mat-select"));
+         options = driver.findElements(By.tagName("mat-option"));
         for (var option: options) {
             if(option.getText().toLowerCase().replace(" ","").contains(SearchOption1.toLowerCase().replace(" ","")))
             {
                 option.click();
+                break;
             }
         }
         Thread.sleep(4000);
-        driver.findElement(By.xpath("//*[@id=\"mat-select-value-3\"]/span]")).click();
+        driver.findElement(By.xpath("//*[@id=\"mat-select-2\"]")).click();
         var SearchOption2 = "Kolar";
-        options = driver.findElements(By.tagName("mat-select"));
+        options = driver.findElements(By.tagName("mat-option"));
         for (var option: options) {
             if(option.getText().toLowerCase().replace(" ","").contains(SearchOption2.toLowerCase().replace(" ","")))
             {
                 option.click();
+                break;
             }
         }
 
+        driver.findElement(By.xpath("//*[@id=\"mat-input-14\"]")).sendKeys("563125");
 
 
-        driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDPV09887G");
-        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDPV9887S");
         driver.findElement(By.xpath("//*[@id=\"mat-input-21\"]")).sendKeys("24AAACK4175D1Z4");
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[4]/button")).click();
 
 
     }
