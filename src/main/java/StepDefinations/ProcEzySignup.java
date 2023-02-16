@@ -8,9 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
 
 public class ProcEzySignup {
 
@@ -50,16 +52,18 @@ public class ProcEzySignup {
     }
     @And("enter mail id hit sign up")
     public void enter_mail_id_hit_sign_up() throws InterruptedException {
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
+        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.id("mat-input-2")).sendKeys(BuyerEmail);
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-auth/div/app-sign-up/div/form/div[3]/button")).click();
     }
     @Then("navigate to yop mail and refresh")
     public void navigate_to_yop_mail_and_refresh() throws InterruptedException {
         driver.switchTo().window(tabs.get(0));
-        Thread.sleep(6000);
+        Thread.sleep(10000);
         driver.findElement(By.id("refresh")).click();
-        Thread.sleep(2000);
+        Thread.sleep(10000);
         System.out.println("1");
     }
     @And("get otp and store in a variable")
@@ -76,17 +80,18 @@ public class ProcEzySignup {
             driver.findElement(By.xpath("//*[@id=\"mat-input-"+(i+3)+"\"]")).sendKeys(String.valueOf(OTP.charAt(i)));
         }
         driver.findElement(By.xpath("//*[@id=\"mat-dialog-0\"]/app-input-dialog/div/mat-dialog-content/div/button")).click();
-        System.out.println("1");
+        //System.out.println("1");
     }
     @And("Enter OTP hit enter")
     public void enter_otp_hit_enter() throws InterruptedException {
         System.out.println("1");
-        Thread.sleep(6000);
+        //Thread.sleep(10000);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
     @Then("fill details")
     public void fill_details() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"mat-input-9\"]")).sendKeys("anz buyer");
-        Thread.sleep(4000);
+        Thread.sleep(10000);
 
         var SearchOption = "Hardware Reseller";
         driver.findElement(By.xpath("//*[@id=\"mat-select-8\"]")).click();
@@ -94,14 +99,15 @@ public class ProcEzySignup {
 
         var options = driver.findElements(By.tagName("mat-option"));
 
+
         for (var option: options) {
             if(option.getText().toLowerCase().replace(" ","").contains(SearchOption.toLowerCase().replace(" ","")))
             {
                 option.click();
             }
         }
-        Thread.sleep(6000);
-
+       //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Thread.sleep(10000);
 
 
         driver.findElement(By.xpath("//*[@id=\"mat-input-10\"]")).sendKeys("bagalore");
@@ -119,7 +125,7 @@ public class ProcEzySignup {
                 break;
             }
         }
-        Thread.sleep(4000);
+        Thread.sleep(10000);
         driver.findElement(By.xpath("//*[@id=\"mat-select-2\"]")).click();
         var SearchOption2 = "Kolar";
         options = driver.findElements(By.tagName("mat-option"));
@@ -136,12 +142,16 @@ public class ProcEzySignup {
 
         driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDPV9887S");
         driver.findElement(By.xpath("//*[@id=\"mat-input-21\"]")).sendKeys("24AAACK4175D1Z4");
-        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
-        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
+        Thread.sleep(10000);
+        //driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]")).isSelected();
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]/mat-card/div/input")).sendKeys("E:\\sample.pdf");
+
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("E:\\sample.pdf");
+        //driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
         driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[4]/button")).click();
 
 
-    }
+    }//*[@id="cdk-step-content-0-0"]/form/div/div[3]/div[1]/mat-card
 
 
 

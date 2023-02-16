@@ -1,4 +1,4 @@
-@SmokeTest
+
 Feature: Signup Test
 
   Scenario: Validate ProcEzy Signup Test
