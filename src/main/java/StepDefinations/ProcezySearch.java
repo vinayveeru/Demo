@@ -54,33 +54,65 @@ public class ProcezySearch {
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         // Write code here that turns the phrase above into concrete actions
         Thread.sleep(10000);
-        throw new io.cucumber.java.PendingException();
     }
 
     @And("select the filters")
-    public void select_the_filters() {
+    public void select_the_filters() throws InterruptedException {
         var SearchOption = "CABINET";
-        driver.findElement(By.xpath("//*[@id=\"mat-select-value-3\"]")).click();
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-products-list/mat-sidenav-container/mat-sidenav-content/div/div/form/mat-form-field[1]")).click();
 
 
-        var options = driver.findElements(By.tagName("mat-option"));
-
+        var  options = driver.findElements(By.tagName("mat-option"));
+      //  var manufactureroptions = driver.findElements(By.tagName("mat-option"));
         for (var option: options) {
             if(option.getText().toLowerCase().replace(" ","").contains(SearchOption.toLowerCase().replace(" ","")))
             {
                 option.click();
+                break;
             }
         }
+        Thread.sleep(10000);
+        SearchOption="asus";
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-products-list/mat-sidenav-container/mat-sidenav-content/div/div/form/mat-form-field[2]")).click();
+        options = driver.findElements(By.tagName("mat-option"));
+        for (var option:options){
+            if(option.getText().toLowerCase().replace(" ","").contains(SearchOption.toLowerCase().replace(" ","")))
+
+             {
+                 option.click();
+                 break;
+
+             }
+
+        }
+        Thread.sleep(10000);
+        SearchOption="ROG Gaming";
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-products-list/mat-sidenav-container/mat-sidenav-content/div/div/form/mat-form-field[3]")).click();
+        options = driver.findElements(By.tagName("mat-option"));
+        for (var option:options){
+            if(option.getText().toLowerCase().replace(" ","").contains(SearchOption.toLowerCase().replace(" ","")))
+
+            {
+                option.click();
+                break;
+
+            }
+
+        }
+        Thread.sleep(10000);
 
 
 
-        throw new PendingException();
     }
+
+
 
     @Then("click on appaly button")
     public void click_on_appaly_button() {
+
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-products-list/mat-sidenav-container/mat-sidenav-content/div/div/form/button")).click();
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+//        throw new io.cucumber.java.PendingException();
     }
 
 }
