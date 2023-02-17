@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Select;
 
 import java.awt.event.MouseEvent;
+import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -86,7 +87,7 @@ public class ProcEzyLoginSteps {
                 option.click();
                 break;
             }
-        }
+        } 
 
         text = "AMD";
         driver.findElement(By.xpath("//*[@id=\"mat-input-11\"]")).sendKeys("am");
@@ -149,9 +150,9 @@ public class ProcEzyLoginSteps {
 
             }
         }
-        driver.findElement(By.xpath("//*[@id=\"mat-input-16\"]")).sendKeys("ROG Gaming c8");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-16\"]")).sendKeys("ROG Gaming c11");
         Thread.sleep(4000);
-        driver.findElement(By.xpath("//*[@id=\"mat-input-17\"]")).sendKeys("brand new gaming c3");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-17\"]")).sendKeys("brand new gaming c5");
         Thread.sleep(4000);
         driver.findElement(By.xpath("//*[@id=\"mat-input-18\"]")).sendKeys("ROG Gamingc2 pro1");
         Thread.sleep(4000);
@@ -186,11 +187,29 @@ public class ProcEzyLoginSteps {
 
             }
         }
-        Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-add-products/mat-card/div[2]/app-details/form/div[10]/button")).click();
-        Thread.sleep(4000);
-        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-master-products/div/app-manage-products-sku/div/app-add-products/mat-card/div[2]/app-media/div/div[2]/div/button")).click();
+        Thread.sleep(10000);
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/app-header/mat-toolbar/mat-toolbar-row/div/div[1]/div/a[3]/span[1]")).click();
+        Thread.sleep(10000);
+        driver.findElement(By.xpath("//*[@id=\"mat-tab-content-0-0\"]/div/div[2]/table/tbody/tr/td[7]/a/span[1]")).click();
+        Thread.sleep(10000);
+
+        driver.findElement(By.xpath("//*[@id=\"mat-checkbox-1\"]/label/div")).click();
+        driver.findElement(By.xpath("//*[@id=\"mat-checkbox-2\"]/label/div")).click();
+        driver.findElement(By.xpath("//*[@id=\"mat-checkbox-3\"]/label/div")).click();
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-new-registration/app-view-profile/mat-card/form/div/div[9]/button[2]/span[1]")).click();
+        Thread.sleep(10000);
+        driver.findElement(By.xpath("//*[@id=\"mat-input-51\"]")).sendKeys("vinay");
+        Thread.sleep(20000);
+        driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-buyers/app-buyer-list/div/mat-card/div[1]/div/mat-form-field/div/div[1]/div[4]/button/span[1]/mat-icon")).click();
+
+
+
+
+
+
 
 
     }
+
 }
+

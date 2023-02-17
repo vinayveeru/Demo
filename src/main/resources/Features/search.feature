@@ -1,4 +1,4 @@
-@SmokeTest
+
 Feature: filters functionality test
 
   Scenario: Validate search filters

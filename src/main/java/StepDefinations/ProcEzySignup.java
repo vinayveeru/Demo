@@ -90,7 +90,7 @@ public class ProcEzySignup {
     }
     @Then("fill details")
     public void fill_details() throws InterruptedException {
-        driver.findElement(By.xpath("//*[@id=\"mat-input-9\"]")).sendKeys("anz buyer");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-9\"]")).sendKeys("ram buyer");
         Thread.sleep(10000);
 
         var SearchOption = "Hardware Reseller";
@@ -140,18 +140,25 @@ public class ProcEzySignup {
         driver.findElement(By.xpath("//*[@id=\"mat-input-14\"]")).sendKeys("563125");
 
 
-        driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDPV9887S");
-        driver.findElement(By.xpath("//*[@id=\"mat-input-21\"]")).sendKeys("24AAACK4175D1Z4");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-20\"]")).sendKeys("BPDTV9887S");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-21\"]")).sendKeys("24SAACK4175D1Z4");
         Thread.sleep(10000);
-        //driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]")).isSelected();
+
         driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[1]/mat-card/div/input")).sendKeys("E:\\sample.pdf");
 
         driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("E:\\sample.pdf");
-        //driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[3]/div[2]/mat-card/div/input")).sendKeys("C:\\Users\\kumar\\Pictures\\Screenshots\\Screenshot_20230122_061916.png");
+
         driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-0\"]/form/div/div[4]/button")).click();
+        Thread.sleep(10000);
+        driver.findElement(By.xpath("//*[@id=\"mat-input-22\"]")).sendKeys("vinay");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-23\"]")).sendKeys("kumar");
+        driver.findElement(By.xpath("//*[@id=\"mat-input-24\"]")).sendKeys("9743375766");
+        driver.findElement(By.xpath("//*[@id=\"mat-checkbox-2\"]/label/div")).click();
+        driver.findElement(By.xpath("//*[@id=\"cdk-step-content-0-1\"]/form/div/div[2]/button/span[1]")).click();
+        
 
 
-    }//*[@id="cdk-step-content-0-0"]/form/div/div[3]/div[1]/mat-card
+    }
 
 
 
