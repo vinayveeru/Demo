@@ -87,7 +87,7 @@ public class ProcEzyLoginSteps {
                 option.click();
                 break;
             }
-        } 
+        }
 
         text = "AMD";
         driver.findElement(By.xpath("//*[@id=\"mat-input-11\"]")).sendKeys("am");
@@ -201,6 +201,7 @@ public class ProcEzyLoginSteps {
         driver.findElement(By.xpath("//*[@id=\"mat-input-51\"]")).sendKeys("vinay");
         Thread.sleep(20000);
         driver.findElement(By.xpath("/html/body/app-root/mat-sidenav-container/mat-sidenav-content/div/div/app-admin/app-buyers/app-buyer-list/div/mat-card/div[1]/div/mat-form-field/div/div[1]/div[4]/button/span[1]/mat-icon")).click();
+
 
 
 
